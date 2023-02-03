@@ -7,12 +7,22 @@
 
         public Dictionary<int, double> Grades { get; set; }
 
-        public char Classification { get; set; }
+        public PersonClassification Classification { get; set; }
 
         public Person()
         {
             Name = string.Empty;
             Grades = new Dictionary<int, double>();
         }
+
+        public override string ToString()
+        {
+            return $"[{Id}] {Name} - {Classification}";
+        }
+    }
+
+    public enum PersonClassification
+    {
+        Freshman, Sophomore, Junior, Senior
     }
 }
