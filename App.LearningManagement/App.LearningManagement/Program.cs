@@ -22,7 +22,8 @@ namespace MyApp // Note: actual namespace depends on the project name.
                 Console.WriteLine("5. Add a new course");
                 Console.WriteLine("6. Update a course");
                 Console.WriteLine("7. List all courses");
-                Console.WriteLine("8. Exit");
+                Console.WriteLine("8. Search for a course");
+                Console.WriteLine("9. Exit");
                 var input = Console.ReadLine();
                 if (int.TryParse(input, out int result)) {
 
@@ -48,6 +49,9 @@ namespace MyApp // Note: actual namespace depends on the project name.
                     {
                         courseHelper.ListCourses();
                     } else if (result == 8)
+                    {
+                        courseHelper.SearchCourses();
+                    } else if (result == 9)
                     {
                         cont = false;
                     }
