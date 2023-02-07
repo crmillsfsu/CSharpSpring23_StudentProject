@@ -1,6 +1,4 @@
 ﻿using App.LearningManagement.Helpers;
-using Library.LearningManagement.Models;
-using System.Xml;
 
 namespace MyApp // Note: actual namespace depends on the project name.
 {

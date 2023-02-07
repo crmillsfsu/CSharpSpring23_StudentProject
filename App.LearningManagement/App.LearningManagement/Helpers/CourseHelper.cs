@@ -11,7 +11,12 @@ namespace App.LearningManagement.Helpers
     public class CourseHelper
     {
         private CourseService courseService = new CourseService();
-        private StudentService studentService = new StudentService();
+        private StudentService studentService;
+
+        public CourseHelper()
+        {
+            studentService= StudentService.Current;
+        }
 
         public void CreateCourseRecord(Course? selectedCourse = null)
         {
@@ -28,7 +33,11 @@ namespace App.LearningManagement.Helpers
             while(continueAdding)
             {
                 studentService.Students.Where(s => !roster.Any(s2 => s2.Id == s.Id)).ToList().ForEach(Console.WriteLine);
-                var selection = Console.ReadLine() ?? string.Empty;
+                var selection = "Q";
+                if(studentService.Students.Any(s => !roster.Any(s2 => s2.Id == s.Id)))
+                {
+                    selection = Console.ReadLine() ?? string.Empty;
+                }
 
                 if(selection.Equals("Q", StringComparison.InvariantCultureIgnoreCase))
                 {
