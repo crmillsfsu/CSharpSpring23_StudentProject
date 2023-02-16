@@ -45,10 +45,12 @@ namespace MyApp // Note: actual namespace depends on the project name.
                     } 
                     else if (result ==7)
                     {
-                        courseHelper.ListCourses();
+                        courseHelper.SearchCourses();
                     } else if (result == 8)
                     {
-                        courseHelper.SearchCourses();
+                        Console.WriteLine("Enter a query:");
+                        var query = Console.ReadLine() ?? string.Empty;
+                        courseHelper.SearchCourses(query);
                     } else if (result == 9)
                     {
                         cont = false;
