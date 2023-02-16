@@ -155,8 +155,7 @@ namespace App.LearningManagement.Helpers
         public void UpdateCourseRecord()
         {
             Console.WriteLine("Enter the code for the course to update:");
-            SearchCourses();
-
+            courseService.Courses.ForEach(Console.WriteLine);
             var selection = Console.ReadLine();
 
             var selectedCourse = courseService.Courses.FirstOrDefault(s => s.Code.Equals(selection, StringComparison.InvariantCultureIgnoreCase));
