@@ -12,7 +12,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
 
             while (cont)
             {
-                Console.WriteLine("1. Maintain Students");
+                Console.WriteLine("1. Maintain People");
                 Console.WriteLine("2. Maintain Courses");
                 Console.WriteLine("3. Exit");                           //sys
                 var input = Console.ReadLine();
@@ -37,10 +37,10 @@ namespace MyApp // Note: actual namespace depends on the project name.
         static void ShowStudentMenu(StudentHelper studentHelper)
         {
             Console.WriteLine("Choose an action:");
-            Console.WriteLine("1. Add a student enrollment");       //student
-            Console.WriteLine("2. Update a student enrollment");    //student
-            Console.WriteLine("3. List all enrolled students");     //student
-            Console.WriteLine("4. Search for a student");           //student
+            Console.WriteLine("1. Add a new person");       
+            Console.WriteLine("2. Update a person");    
+            Console.WriteLine("3. List all people");     
+            Console.WriteLine("4. Search for a person");           
 
             var input = Console.ReadLine();
             if (int.TryParse(input, out int result))
