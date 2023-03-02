@@ -9,5 +9,6 @@ namespace Library.LearningManagement.Models
     public class PageItem : ContentItem
     {
         public string? HtmlBody { get; set; }
+
     }
 }
