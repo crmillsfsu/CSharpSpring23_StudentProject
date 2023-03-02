@@ -200,7 +200,27 @@ namespace App.LearningManagement.Helpers
                 selectedCourse.Modules.Add(CreateModule(selectedCourse));
             }
         }
+        public void RemoveModule()
+        {
+            Console.WriteLine("Enter the code for the course:");
+            courseService.Courses.ForEach(Console.WriteLine);
+            var selection = Console.ReadLine();
 
+            var selectedCourse = courseService.Courses.FirstOrDefault(s => s.Code.Equals(selection, StringComparison.InvariantCultureIgnoreCase));
+
+            if (selectedCourse != null)
+            {
+                Console.WriteLine("Choose an module to delete:");
+                selectedCourse.Modules.ForEach(Console.WriteLine);
+                var selectionStr = Console.ReadLine() ?? string.Empty;
+                var selectionInt = int.Parse(selectionStr);
+                var selectedModule = selectedCourse.Modules.FirstOrDefault(m => m.Id == selectionInt);
+                if (selectedModule != null)
+                {
+                    selectedCourse.Modules.Remove(selectedModule);
+                }
+            }
+        }
         public void UpdateAssignment()
         {
             Console.WriteLine("Enter the code for the course:");

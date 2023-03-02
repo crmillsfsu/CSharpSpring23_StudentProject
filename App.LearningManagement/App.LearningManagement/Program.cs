@@ -74,8 +74,9 @@ namespace MyApp // Note: actual namespace depends on the project name.
             Console.WriteLine("6. Update an assignment");
             Console.WriteLine("7. Remove an assignment");
             Console.WriteLine("8. Add a module to a course");
-            Console.WriteLine("9. List all courses");               //course
-            Console.WriteLine("10. Search for a course");            //course
+            Console.WriteLine("9. Remove a module from a course");
+            Console.WriteLine("10. List all courses");               //course
+            Console.WriteLine("11. Search for a course");            //course
 
 
             var input = Console.ReadLine();
@@ -108,12 +109,15 @@ namespace MyApp // Note: actual namespace depends on the project name.
                 } else if(result == 8)
                 {
                     courseHelper.AddModule();
+                } else if(result ==9)
+                {
+                    courseHelper.RemoveModule();
                 }
-                else if (result == 9)
+                else if (result == 10)
                 {
                     courseHelper.SearchCourses();
                 }
-                else if (result == 10)
+                else if (result == 11)
                 {
                     Console.WriteLine("Enter a query:");
                     var query = Console.ReadLine() ?? string.Empty;
