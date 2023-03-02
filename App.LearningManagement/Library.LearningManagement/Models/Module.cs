@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -14,6 +15,12 @@ namespace Library.LearningManagement.Models
 
         public Module() { 
             Content= new List<ContentItem>();
+        }
+
+        public override string ToString()
+        {
+            return $"{Name}: {Description}\n" +
+                $"{string.Join("\n\t", Content.Select(c => c.ToString()).ToArray())}";
         }
     }
 }
