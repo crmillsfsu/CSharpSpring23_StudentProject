@@ -51,8 +51,6 @@ namespace App.LearningManagement.Helpers
                 }
             }
 
-            Console.WriteLine("What is the id of the student?");
-            var id = Console.ReadLine();
             Console.WriteLine("What is the name of the student?");
             var name = Console.ReadLine();
             if (selectedStudent is Student)
@@ -77,7 +75,6 @@ namespace App.LearningManagement.Helpers
                 if (studentRecord != null)
                 {
                     studentRecord.Classification = classEnum;
-                    studentRecord.Id = int.Parse(id ?? "0");
                     studentRecord.Name = name ?? string.Empty;
 
                     if (isCreate)
@@ -88,7 +85,6 @@ namespace App.LearningManagement.Helpers
             } else {
                 if (selectedStudent != null)
                 {
-                    selectedStudent.Id = int.Parse(id ?? "0");
                     selectedStudent.Name = name ?? string.Empty;
                     if (isCreate)
                     {
