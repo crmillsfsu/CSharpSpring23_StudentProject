@@ -200,6 +200,19 @@ namespace App.LearningManagement.Helpers
                 selectedCourse.Modules.Add(CreateModule(selectedCourse));
             }
         }
+
+        public void AddAnnouncement()
+        {
+            Console.WriteLine("Enter the code for the course to add the announcement to:");
+            courseService.Courses.ForEach(Console.WriteLine);
+            var selection = Console.ReadLine();
+
+            var selectedCourse = courseService.Courses.FirstOrDefault(s => s.Code.Equals(selection, StringComparison.InvariantCultureIgnoreCase));
+            if (selectedCourse != null)
+            {
+                selectedCourse.Announcements.Add(CreateAnnouncement(selectedCourse));
+            }
+        }
         public void RemoveModule()
         {
             Console.WriteLine("Enter the code for the course:");
@@ -442,6 +455,22 @@ namespace App.LearningManagement.Helpers
                 }
             }
         }
+
+        private Announcement CreateAnnouncement(Course c)
+        {
+            Console.WriteLine("Enter the name of the announcement:");
+            var name = Console.ReadLine();
+
+            Console.WriteLine("Enter the description of the announcement:");
+            var description = Console.ReadLine();
+
+            return new Announcement
+            {
+                Name = name,
+                Description = description
+            };
+        }
+
         private Module CreateModule(Course c)
         {
             //Name
