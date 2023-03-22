@@ -37,8 +37,8 @@ namespace App.LearningManagement.Helpers
 
             if(choice.Equals("Y", StringComparison.InvariantCultureIgnoreCase))
             {
-                Console.WriteLine("What is the code of the course?");
-                selectedCourse.Code = Console.ReadLine() ?? string.Empty;
+                Console.WriteLine("What is the prefix of the course?");
+                selectedCourse.Prefix = Console.ReadLine() ?? string.Empty;
             }
 
             if(!isNewCourse)
