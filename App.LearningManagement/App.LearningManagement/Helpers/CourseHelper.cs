@@ -343,6 +343,7 @@ namespace App.LearningManagement.Helpers
             }
 
         }
+
         public void UpdateAssignment()
         {
             Console.WriteLine("Enter the code for the course:");
@@ -469,6 +470,31 @@ namespace App.LearningManagement.Helpers
                 Name = name,
                 Description = description
             };
+        }
+
+        public void UpdateAnnouncement()
+        {
+            Console.WriteLine("Enter the code for the course:");
+            courseService.Courses.ForEach(Console.WriteLine);
+            var selection = Console.ReadLine();
+
+            var selectedCourse = courseService.Courses.FirstOrDefault(s => s.Code.Equals(selection, StringComparison.InvariantCultureIgnoreCase));
+            if (selectedCourse != null)
+            {
+                Console.WriteLine("Choose an announcement to update:");
+                selectedCourse.Announcements.ForEach(Console.WriteLine);
+                var selectionStr = Console.ReadLine() ?? string.Empty;
+                var selectionInt = int.Parse(selectionStr);
+                var selectedAnnouncement = selectedCourse.Announcements.FirstOrDefault(a => a.Id == selectionInt);
+                if (selectedAnnouncement != null)
+                {
+                    Console.WriteLine("Name:");
+                    selectedAnnouncement.Name = Console.ReadLine();
+
+                    Console.WriteLine("Description:");
+                    selectedAnnouncement.Description = Console.ReadLine();
+                }
+            }
         }
 
         public void RemoveAnnouncement()
