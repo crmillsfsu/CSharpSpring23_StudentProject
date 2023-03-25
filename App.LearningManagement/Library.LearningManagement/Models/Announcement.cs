@@ -23,7 +23,7 @@ namespace Library.LearningManagement.Models
 
         public override string ToString()
         {
-            return $"{Name}: {Description}";
+            return $"[{Id}] {Name}: {Description}";
         }
     }
 }
