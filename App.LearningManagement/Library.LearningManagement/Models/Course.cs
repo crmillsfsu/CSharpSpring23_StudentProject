@@ -30,6 +30,7 @@ namespace Library.LearningManagement.Models
                 return AssignmentGroups.SelectMany(ag => ag.Assignments);
             } 
         }
+        public List<Submission> Submissions { get; set; }
         public List<Module> Modules { get; set; }
         public List<Announcement> Announcements { get; set; }
 
@@ -38,6 +39,7 @@ namespace Library.LearningManagement.Models
             Description = string.Empty;
             Roster= new List<Person>();
             AssignmentGroups = new List<AssignmentGroup>();
+            Submissions = new List<Submission>();
             Modules= new List<Module>();
             Announcements= new List<Announcement>();
             Prefix = string.Empty;
