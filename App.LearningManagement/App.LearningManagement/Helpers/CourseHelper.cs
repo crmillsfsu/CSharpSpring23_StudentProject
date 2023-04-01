@@ -792,5 +792,22 @@ namespace App.LearningManagement.Helpers
             }
 
         }
+
+        public void UpdateSubmission()
+        {
+            Console.WriteLine("Enter the code for the course to add the assignment to:");
+            courseService.Courses.ForEach(Console.WriteLine);
+            var selection = Console.ReadLine();
+
+            var selectedCourse = courseService.Courses.FirstOrDefault(s => s.Code.Equals(selection, StringComparison.InvariantCultureIgnoreCase));
+            if (selectedCourse != null)
+            {
+                selectedCourse.Submissions.ForEach(Console.WriteLine);
+                var selectedId = int.Parse(Console.ReadLine() ?? "0");
+
+                Console.WriteLine("Enter new content:");
+                selectedCourse.Submissions.FirstOrDefault(s => s.Id == selectedId).Content = Console.ReadLine() ?? string.Empty;
+            }
+        }
     }
 }
