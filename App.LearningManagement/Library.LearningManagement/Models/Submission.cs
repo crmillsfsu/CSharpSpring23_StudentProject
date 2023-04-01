@@ -14,14 +14,19 @@ namespace Library.LearningManagement.Models
             get; private set;
         }
 
-        public int StudentId { get; set; }
-        public int AssignmentId { get; set; }
+        public Student Student { get; set; }
+        public Assignment Assignment { get; set; }
         public string Content { get; set; }
 
         public Submission()
         {
             Id = ++lastId;
             Content = string.Empty;
+        }
+
+        public override string ToString()
+        {
+            return $"[{Id}]{Student.Name}: {Assignment}";
         }
     }
 }
