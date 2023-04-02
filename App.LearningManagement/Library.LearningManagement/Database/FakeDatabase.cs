@@ -9,11 +9,13 @@ namespace Library.LearningManagement.Database
 {
     public static class FakeDatabase
     {
+        private static List<Person> people= new List<Person>();
+        private static List<Course> courses= new List<Course>();
         public static List<Person> People
         {
             get
             {
-                return new List<Person>();
+                return people;
             }
         }
 
@@ -21,7 +23,7 @@ namespace Library.LearningManagement.Database
         {
             get 
             { 
-                return new List<Course>(); 
+               return courses; 
             }
         }
     }
