@@ -4,11 +4,20 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:MAUI.LearningManagement"
+    xmlns:local2="clr-namespace:MAUI.LearningManagement.Views"
     Shell.FlyoutBehavior="Disabled">
 
     <ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
+    <ShellContent
+        Title="Instructor"
+        ContentTemplate="{DataTemplate local2:InstructorView}"
+        Route="Instructor" />
+    <ShellContent
+        Title="Student"
+        ContentTemplate="{DataTemplate local2:StudentView}"
+        Route="Student" />
 
 </Shell>
