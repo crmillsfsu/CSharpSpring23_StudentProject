@@ -1,4 +1,5 @@
-﻿using Library.LearningManagement.Models;
+﻿using Library.LearningManagement.Database;
+using Library.LearningManagement.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -10,7 +11,6 @@ namespace Library.LearningManagement.Services
 {
     public class CourseService
     {
-        private List<Course> courseList;
         private static CourseService? _instance;
 
         public static CourseService Current
@@ -28,19 +28,19 @@ namespace Library.LearningManagement.Services
 
         private CourseService()
         {
-            courseList = new List<Course>();
+
         }
 
         public void Add(Course course)
         {
-            courseList.Add(course);
+            FakeDatabase.Courses.Add(course);
         }
 
         public List<Course> Courses
         {
             get
             {
-                return courseList;
+                return FakeDatabase.Courses;
             }
         }
 
