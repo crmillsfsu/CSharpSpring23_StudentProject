@@ -48,5 +48,16 @@ namespace Library.LearningManagement.Services
         {
             return studentList.Where(s => s.Name.ToUpper().Contains(query.ToUpper()));
         }
+
+        public decimal GetGPA(int studentId)
+        {
+            var courseSvc = CourseService.Current;
+            var courses = courseSvc.Courses.Where(c => c.Roster.Select(s => s.Id).Contains(studentId));
+
+            var totalGradePoints = courses.Select(c => courseSvc.GetGradePoints(c.Id, studentId) * c.CreditHours).Sum();
+            var totalCreditHours = courses.Select(c => c.CreditHours).Sum();
+
+            return totalGradePoints / (totalCreditHours > 0 ? totalCreditHours : -1);
+        }
     }
 }
