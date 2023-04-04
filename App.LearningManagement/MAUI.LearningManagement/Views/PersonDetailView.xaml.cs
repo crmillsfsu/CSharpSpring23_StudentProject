@@ -15,6 +15,7 @@ public partial class PersonDetailView : ContentPage
 
     private void OkClick(object sender, EventArgs e)
     {
+		//TODO: Need to migrate this to the ViewModel
 		var context = BindingContext as PersonDetailViewModel;
 		PersonClassification classification;
 		switch (context.ClassificationString)
@@ -34,6 +35,6 @@ public partial class PersonDetailView : ContentPage
 				break;
 		}
 		StudentService.Current.Add(new Student { Name = context.Name, Classification = classification });
-        Shell.Current.GoToAsync("//MainPage");
+        Shell.Current.GoToAsync("//Instructor");
     }
 }
