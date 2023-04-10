@@ -11,7 +11,8 @@
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
         <ListView
-            ItemsSource="{Binding People}">
+            ItemsSource="{Binding People}"
+            SelectedItem="{Binding SelectedPerson, Mode=TwoWay}">
             <!--<ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -24,6 +25,11 @@
             Text="Add Enrollment"
             Clicked="AddEnrollmentClick"
             />
+        <Button
+            Text="Remove Enrollment"
+            Clicked="RemoveEnrollmentClick"
+            />
+
         <Button
             Text="Cancel"
             Clicked="CancelClicked"

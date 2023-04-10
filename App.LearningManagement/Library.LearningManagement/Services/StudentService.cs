@@ -45,6 +45,11 @@ namespace Library.LearningManagement.Services
             FakeDatabase.People.Add(student);
         }
 
+        public void Remove(Person student)
+        {
+            FakeDatabase.People.Remove(student);
+        }
+
         public IEnumerable<Student?> Search(string query)
         {
             return Students.Where(s => (s != null) && s.Name.ToUpper().Contains(query.ToUpper()));
