@@ -4,6 +4,7 @@ using MAUI.LearningManagement.ViewModels;
 
 namespace MAUI.LearningManagement.Views;
 
+[QueryProperty(nameof(PersonId), "personId")]
 public partial class PersonDetailView : ContentPage
 {
 	public PersonDetailView()
