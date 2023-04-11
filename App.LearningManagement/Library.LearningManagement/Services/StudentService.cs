@@ -45,6 +45,19 @@ namespace Library.LearningManagement.Services
             FakeDatabase.People.Add(student);
         }
 
+<<<<<<< Updated upstream
+=======
+        public void Remove(Person student)
+        {
+            FakeDatabase.People.Remove(student);
+        }
+
+        public Person? GetById(int id)
+        {
+            return FakeDatabase.People.FirstOrDefault(p => p.Id == id);
+        }
+
+>>>>>>> Stashed changes
         public IEnumerable<Student?> Search(string query)
         {
             return Students.Where(s => (s != null) && s.Name.ToUpper().Contains(query.ToUpper()));

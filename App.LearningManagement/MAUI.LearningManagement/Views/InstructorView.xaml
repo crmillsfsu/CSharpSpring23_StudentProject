@@ -25,6 +25,18 @@
             Clicked="AddEnrollmentClick"
             />
         <Button
+<<<<<<< Updated upstream
+=======
+            Text="Edit Enrollment"
+            Clicked="EditEnrollmentClick"
+            />
+        <Button
+            Text="Remove Enrollment"
+            Clicked="RemoveEnrollmentClick"
+            />
+
+        <Button
+>>>>>>> Stashed changes
             Text="Cancel"
             Clicked="CancelClicked"
             />

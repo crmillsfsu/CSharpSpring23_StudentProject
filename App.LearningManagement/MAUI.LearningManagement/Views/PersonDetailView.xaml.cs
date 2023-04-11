@@ -11,11 +11,19 @@ public partial class PersonDetailView : ContentPage
 		InitializeComponent();
 	}
 
+    public int PersonId
+    {
+        set; get;
+    }
+
     private void OkClick(object sender, EventArgs e)
     {
-		//TODO: Need to migrate this to the ViewModel
 		(BindingContext as PersonDetailViewModel).AddPerson();
-        
+    }
+
+    private void CancelClick(object sender, EventArgs e)
+    {
+        Shell.Current.GoToAsync("//Instructor");
     }
 
     private void OnLeaving(object sender, NavigatedFromEventArgs e)
@@ -24,6 +32,6 @@ public partial class PersonDetailView : ContentPage
     }
 
 	private void OnArriving(object sender, NavigatedToEventArgs e) {
-        BindingContext = new PersonDetailViewModel();
+        BindingContext = new PersonDetailViewModel(PersonId);
     }
 }
