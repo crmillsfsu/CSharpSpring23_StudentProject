@@ -45,25 +45,16 @@ namespace Library.LearningManagement.Services
             FakeDatabase.People.Add(student);
         }
 
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> 3ec7ec54ce42b3c38e38ee5b2bc0af9f77aee2ae
         public void Remove(Person student)
         {
             FakeDatabase.People.Remove(student);
         }
 
-<<<<<<< HEAD
         public Person? GetById(int id)
         {
             return FakeDatabase.People.FirstOrDefault(p => p.Id == id);
         }
 
->>>>>>> Stashed changes
-=======
->>>>>>> 3ec7ec54ce42b3c38e38ee5b2bc0af9f77aee2ae
         public IEnumerable<Student?> Search(string query)
         {
             return Students.Where(s => (s != null) && s.Name.ToUpper().Contains(query.ToUpper()));
