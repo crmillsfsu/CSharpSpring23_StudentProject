@@ -12,7 +12,7 @@
             HorizontalOptions="Center" />
         <ListView
             ItemsSource="{Binding People}"
-            SelectedItem="{Binding SelectedPerson, Mode=TwoWay}">
+            SelectedItem="{Binding SelectedPerson}">
             <!--<ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -26,24 +26,15 @@
             Clicked="AddEnrollmentClick"
             />
         <Button
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-=======
             Text="Edit Enrollment"
             Clicked="EditEnrollmentClick"
             />
         <Button
-=======
->>>>>>> 3ec7ec54ce42b3c38e38ee5b2bc0af9f77aee2ae
             Text="Remove Enrollment"
             Clicked="RemoveEnrollmentClick"
             />
 
         <Button
-<<<<<<< HEAD
->>>>>>> Stashed changes
-=======
->>>>>>> 3ec7ec54ce42b3c38e38ee5b2bc0af9f77aee2ae
             Text="Cancel"
             Clicked="CancelClicked"
             />
