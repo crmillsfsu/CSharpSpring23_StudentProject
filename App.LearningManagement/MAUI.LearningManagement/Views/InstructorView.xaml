@@ -5,41 +5,73 @@
              Title="InstructorView"
              NavigatedTo="ContentPage_NavigatedTo"
              >
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Text="Enrollments"
+            Clicked="Toolbar_EnrollmentsClicked"
+            />
+        <ToolbarItem
+            Text="Courses"
+            Clicked="Toolbar_CoursesClicked"
+           />
+    </ContentPage.ToolbarItems>
     <VerticalStackLayout>
-        <Label 
-            Text="INSTRUCTOR VIEW"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
         <SearchBar
             Text="{Binding Query, Mode=TwoWay}"
-            ></SearchBar>
-        <ListView
-            ItemsSource="{Binding People}"
-            SelectedItem="{Binding SelectedPerson}">
-            <!--<ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>-->
-        </ListView>
-        <Button 
-            Text="Add Enrollment"
-            Clicked="AddEnrollmentClick"
-            />
-        <Button
-            Text="Edit Enrollment"
-            Clicked="EditEnrollmentClick"
-            />
-        <Button
-            Text="Remove Enrollment"
-            Clicked="RemoveEnrollmentClick"
-            />
+        ></SearchBar>
+        <!--ENROLLMENTS-->
+        <VerticalStackLayout IsVisible="{Binding IsEnrollmentsVisible}">
+            <Label 
+                Text="University Enrollments"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" />
+            <ListView
+                ItemsSource="{Binding People}"
+                SelectedItem="{Binding SelectedPerson}">
+            </ListView>
+            <Button 
+                Text="Add Enrollment"
+                Clicked="AddEnrollmentClick"
+                />
+            <Button
+                Text="Edit Enrollment"
+                Clicked="EditEnrollmentClick"
+                />
+            <Button
+                Text="Remove Enrollment"
+                Clicked="RemoveEnrollmentClick"
+                />
 
-        <Button
-            Text="Cancel"
-            Clicked="CancelClicked"
-            />
+            <Button
+                Text="Cancel"
+                Clicked="CancelClicked"
+                />
+        </VerticalStackLayout>
+        
+        <!--COURSES-->
+        <VerticalStackLayout IsVisible="{Binding IsCoursesVisible}">
+            <Label 
+                Text="University Course List"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" />
+            <ListView
+                ItemsSource="{Binding Courses}"
+                SelectedItem="{Binding SelectedCourse}">
+            </ListView>
+            <Button 
+                Text="Add Course"
+                Clicked="AddCourseClick"
+                />
+            <Button
+                Text="Edit Course"
+                />
+            <Button
+                Text="Remove Course"
+                />
+
+            <Button
+                Text="Cancel"
+                />
+        </VerticalStackLayout>
     </VerticalStackLayout>
 </ContentPage>

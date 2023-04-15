@@ -13,6 +13,11 @@ namespace MAUI.LearningManagement.ViewModels
 {
     public class InstructorViewViewModel: INotifyPropertyChanged
     {
+        public InstructorViewViewModel()
+        {
+            IsEnrollmentsVisible= true;
+            IsCoursesVisible= false;
+        }
         public ObservableCollection<Person> People
         {
             get
@@ -28,7 +33,43 @@ namespace MAUI.LearningManagement.ViewModels
             }
         }
 
+        public ObservableCollection<Course> Courses
+        {
+            get
+            {
+                return new ObservableCollection<Course>(CourseService.Current.Courses);
+            }
+        }
+
+        public string Title { get => "Instructor / Administrator Menu"; }
+
+        public bool IsEnrollmentsVisible
+        {
+            get; set;
+        }
+
+        public bool IsCoursesVisible
+        {
+            get; set;
+        }
+
+        public void ShowEnrollments()
+        {
+            IsEnrollmentsVisible = true;
+            IsCoursesVisible = false;
+            NotifyPropertyChanged("IsEnrollmentsVisible");
+            NotifyPropertyChanged("IsCoursesVisible");
+        }
+
+        public void ShowCourses()
+        {
+            IsEnrollmentsVisible = false;
+            IsCoursesVisible = true;
+            NotifyPropertyChanged("IsEnrollmentsVisible");
+            NotifyPropertyChanged("IsCoursesVisible");
+        }
         public Person SelectedPerson { get; set; }
+        public Course SelectedCourse { get; set; }
 
         private string query;
         public string Query {
@@ -47,13 +88,18 @@ namespace MAUI.LearningManagement.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public void AddClick(Shell s)
+        public void AddEnrollmentClick(Shell s)
         {
             var idParam = SelectedPerson?.Id ?? 0;
             s.GoToAsync($"//PersonDetail?personId={idParam}");
         }
 
-        public void RemoveClick()
+        public void AddCourseClick(Shell s)
+        {
+            s.GoToAsync($"//CourseDetail");
+        }
+
+        public void RemoveEnrollmentClick()
         {
             if(SelectedPerson == null) { return; }
 
@@ -64,6 +110,7 @@ namespace MAUI.LearningManagement.ViewModels
         public void RefreshView()
         {
             NotifyPropertyChanged(nameof(People));
+            NotifyPropertyChanged(nameof(Courses));
         }
 
     }
