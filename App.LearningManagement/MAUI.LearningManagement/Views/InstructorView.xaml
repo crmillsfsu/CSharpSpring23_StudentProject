@@ -10,6 +10,9 @@
             Text="INSTRUCTOR VIEW"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+        <SearchBar
+            Text="{Binding Query, Mode=TwoWay}"
+            ></SearchBar>
         <ListView
             ItemsSource="{Binding People}"
             SelectedItem="{Binding SelectedPerson}">

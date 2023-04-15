@@ -17,11 +17,28 @@ namespace MAUI.LearningManagement.ViewModels
         {
             get
             {
-                return new ObservableCollection<Person>(StudentService.Current.Students);
+
+                var filteredList = StudentService
+                    .Current
+                    .Students
+                    .Where(
+                    s => s.Name.ToUpper().Contains(Query?.ToUpper() ?? string.Empty));
+                return new ObservableCollection<Person>(filteredList);
+
             }
         }
 
         public Person SelectedPerson { get; set; }
+
+        private string query;
+        public string Query {
+            get => query;
+            set
+            {
+                query = value;
+                NotifyPropertyChanged(nameof(People));
+            }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
         
