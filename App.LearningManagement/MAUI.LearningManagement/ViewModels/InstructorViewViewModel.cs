@@ -88,10 +88,15 @@ namespace MAUI.LearningManagement.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public void AddEnrollmentClick(Shell s)
+        public void EditEnrollmentClick(Shell s)
         {
             var idParam = SelectedPerson?.Id ?? 0;
             s.GoToAsync($"//PersonDetail?personId={idParam}");
+        }
+
+        public void AddEnrollmentClick(Shell s)
+        {
+            s.GoToAsync($"//PersonDetail?personId=0");
         }
 
         public void AddCourseClick(Shell s)
@@ -107,8 +112,15 @@ namespace MAUI.LearningManagement.ViewModels
             RefreshView();
         }
 
+        public void ResetView()
+        {
+            Query = string.Empty;
+            NotifyPropertyChanged(nameof(Query));
+        }
+
         public void RefreshView()
         {
+
             NotifyPropertyChanged(nameof(People));
             NotifyPropertyChanged(nameof(Courses));
         }
