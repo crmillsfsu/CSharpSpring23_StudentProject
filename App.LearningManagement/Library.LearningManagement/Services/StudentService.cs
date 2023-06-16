@@ -14,7 +14,7 @@ namespace Library.LearningManagement.Services
 
         private static StudentService? _instance;
 
-        public IEnumerable<Student?> Students
+        public IEnumerable<Student> Students
         {
             get 
             {

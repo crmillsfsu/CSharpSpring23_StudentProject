@@ -14,14 +14,14 @@ namespace App.LearningManagement.Helpers
     {
         private StudentService studentService;
         private CourseService courseService;
-        private ListNavigator<Person> studentNavigator;
+        private ListNavigator<Student> studentNavigator;
 
         public StudentHelper()
         {
             studentService = StudentService.Current;
             courseService = CourseService.Current;
 
-            studentNavigator = new ListNavigator<Person>(studentService.Students, 2);
+            studentNavigator = new ListNavigator<Student>(studentService.Students.ToList(), 2);
         }
 
         public void CreateStudentRecord(Person? selectedStudent = null)
@@ -97,7 +97,7 @@ namespace App.LearningManagement.Helpers
         public void UpdateStudentRecord()
         {
             Console.WriteLine("Select a person to update:");
-            studentService.Students.ForEach(Console.WriteLine);
+            studentService.Students.ToList().ForEach(Console.WriteLine);
 
             var selectionStr = Console.ReadLine();
 
@@ -113,13 +113,13 @@ namespace App.LearningManagement.Helpers
 
         private void NavigateStudents(string? query = null)
         {
-            ListNavigator<Person>? currentNavigator = null;
+            ListNavigator<Student>? currentNavigator = null;
             if(query == null)
             {
                 currentNavigator = studentNavigator;
             }else
             {
-                currentNavigator = new ListNavigator<Person>(studentService.Search(query).ToList(), 2);
+                currentNavigator = new ListNavigator<Student>(studentService.Search(query).ToList(), 2);
             }
             
             bool keepPaging = true;
